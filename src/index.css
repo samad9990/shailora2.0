@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Base style resets */
+body {
+  background-color: #ffffff;
+  color: #171717;
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+}
+
+/* Custom fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Clean customized minimal scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 99px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1aa;
+}
+
+/* Premium selection highlighting */
+::selection {
+  background: #f4f4f5;
+  color: #000000;
+}
+
+.dark ::selection {
+  background: #18181b;
+  color: #ffffff;
+}
+
+/* Custom print stylesheet for beautiful PDF downloads */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  header, footer, button, #shailora-sound-toggle, #shailora-custom-cursor, .print\:hidden {
+    display: none !important;
+  }
+  .print\:bg-white {
+    background: white !important;
+  }
+  .print\:text-black {
+    color: black !important;
+  }
+}
